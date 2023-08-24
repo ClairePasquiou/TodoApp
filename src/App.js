@@ -7,6 +7,8 @@ export default function App() {
   return(
   <div>
     <h1>Todo List</h1>
+    <input type="text" value={input} onChange={(e) => setInput(e.target.value)}/>
+    <button>Add</button>
   </div>
   );
 }
