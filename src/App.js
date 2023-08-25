@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css";
 
 export default function App() {
   let [list, setList] = useState([]);
@@ -21,22 +22,36 @@ export default function App() {
   };
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button onClick={() => addTodo(input)}>Add</button>
-      <ul>
-        {list.map((todo) => (
-          <li key={todo.id}>
-            {todo.todo}
-            <button onClick={() => deleteTodo(todo.id)}>&times;</button>
-          </li>
-        ))}
-      </ul>
+    <div className="App">
+      <h1>To Do List</h1>
+
+      <div>
+        <div className="List">
+          <input
+            className="Input"
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+
+          <button className="Add" onClick={() => addTodo(input)}>
+            Add
+          </button>
+        </div>
+
+        <div className="Elements">
+          <ul>
+            {list.map((todo) => (
+              <li key={todo.id}>
+                {todo.todo}
+                <button className="Delete" onClick={() => deleteTodo(todo.id)}>
+                  &times;
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
